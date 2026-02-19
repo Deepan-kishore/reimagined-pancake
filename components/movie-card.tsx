@@ -16,7 +16,7 @@ export default function MovieCard({ title }: MovieCardProps) {
       </div>
       <div className="movie-hover">
         <h4>{title.name}</h4>
-        <p>{title.genre} • {title.year}</p>
+        <p>{title.genre} - {title.year}</p>
         <div className="hover-actions">
           <Link href={`/watch/${title.id}`} className="icon-action">Play</Link>
           <button type="button" className="icon-action">+</button>

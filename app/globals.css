@@ -7,6 +7,26 @@
   --brand: #e50914;
   --focus: #ffffff;
   --card-width: min(18rem, 45vw);
+  --font-family-base: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+  --fs-body: 16px;
+  --fs-nav: 14px;
+  --fs-caption: 12px;
+  --fs-meta: 14px;
+  --fs-rail-title: 20px;
+  --fs-card-title: 14px;
+  --fs-auth-title: 32px;
+  --fs-profile-name: 24px;
+  --fs-hero-title: clamp(2rem, 5.2vw, 4.5rem);
+  --fs-watch-title: clamp(1.8rem, 4vw, 3.6rem);
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --lh-body: 1.4;
+  --lh-tight: 1.2;
+  --lh-relaxed: 1.5;
+  --ls-tight: -0.02em;
+  --ls-wide: 0.12em;
   color-scheme: dark;
 }
 
@@ -20,7 +40,9 @@ body {
   min-height: 100%;
   background: var(--bg);
   color: var(--text);
-  font-family: "Helvetica Neue", "Segoe UI", sans-serif;
+  font-family: var(--font-family-base);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
 }
 
 a {
@@ -29,7 +51,9 @@ a {
 }
 
 button,
-input {
+input,
+textarea,
+select {
   font: inherit;
 }
 
@@ -52,15 +76,16 @@ input {
 }
 
 .brand {
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wide);
   color: var(--brand);
 }
 
 .top-nav nav {
   display: flex;
   gap: 1rem;
-  font-size: 0.95rem;
+  font-size: var(--fs-nav);
+  font-weight: var(--fw-medium);
 }
 
 .actions {
@@ -76,6 +101,8 @@ input {
   color: var(--text);
   opacity: 0.9;
   cursor: pointer;
+  font-size: var(--fs-nav);
+  font-weight: var(--fw-medium);
 }
 
 .avatar {
@@ -85,8 +112,8 @@ input {
   height: 2rem;
   border-radius: 0.25rem;
   background: #2563eb;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
 }
 
 .landing {
@@ -132,7 +159,9 @@ input {
 .primary-cta {
   background: var(--brand);
   color: #fff;
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-nav);
+  line-height: var(--lh-tight);
 }
 
 .primary-cta.full {
@@ -147,7 +176,20 @@ input {
 
 .landing-hero h1 {
   margin: 0 0 1rem;
-  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  font-size: var(--fs-hero-title);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+
+.landing-hero p {
+  font-size: var(--fs-meta);
+  line-height: var(--lh-relaxed);
+}
+
+.landing-hero p:first-of-type {
+  font-size: 1.5rem;
+  font-weight: var(--fw-medium);
 }
 
 .auth-page {
@@ -170,12 +212,27 @@ input {
   gap: 0.7rem;
 }
 
+.auth-card h1 {
+  margin: 0 0 1.5rem;
+  font-size: var(--fs-auth-title);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+}
+
+.auth-card label {
+  font-size: var(--fs-nav);
+  font-weight: var(--fw-medium);
+  color: #b8b8b8;
+}
+
 .auth-card input {
   background: #333;
   border: 1px solid #3d3d3d;
   border-radius: 0.25rem;
   padding: 0.75rem;
   color: var(--text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
 }
 
 .profiles-page {
@@ -184,6 +241,13 @@ input {
   place-content: center;
   justify-items: center;
   gap: 2rem;
+}
+
+.profiles-page h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
 }
 
 .profiles-grid {
@@ -198,6 +262,14 @@ input {
   gap: 0.6rem;
   justify-items: center;
   color: var(--muted);
+  font-size: var(--fs-profile-name);
+  font-weight: var(--fw-regular);
+}
+
+.profile-card span:last-child {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: var(--lh-tight);
 }
 
 .profile-card .avatar {
@@ -205,6 +277,7 @@ input {
   height: 6rem;
   border-radius: 0.45rem;
   font-size: 1.6rem;
+  font-weight: var(--fw-bold);
 }
 
 .ghost-outline {
@@ -213,6 +286,9 @@ input {
   color: #808080;
   padding: 0.7rem 1.4rem;
   cursor: pointer;
+  font-size: var(--fs-nav);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.04em;
 }
 
 .browse-page {
@@ -243,14 +319,18 @@ input {
 
 .eyebrow {
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.75rem;
+  letter-spacing: var(--ls-wide);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
   color: #d4d4d4;
 }
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: var(--fs-hero-title);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
 }
 
 .meta {
@@ -258,7 +338,13 @@ input {
   flex-wrap: wrap;
   gap: 0.8rem;
   color: #d4d4d4;
-  font-size: 0.9rem;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-medium);
+}
+
+.hero-content > p {
+  font-size: 1.1rem;
+  line-height: var(--lh-relaxed);
 }
 
 .hero-actions {
@@ -271,12 +357,15 @@ input {
   border-radius: 0.3rem;
   color: #000;
   background: #fff;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: var(--fw-bold);
 }
 
 .info-btn {
   background: rgba(109, 109, 110, 0.72);
   color: #fff;
+  font-size: 1.1rem;
+  font-weight: var(--fw-medium);
 }
 
 .rails-stack {
@@ -292,7 +381,9 @@ input {
 }
 
 .content-rail h2 {
-  font-size: 1.2rem;
+  font-size: var(--fs-rail-title);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
   margin-bottom: 0.75rem;
 }
 
@@ -335,7 +426,9 @@ input {
 
 .movie-base h3 {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
 }
 
 .movie-hover {
@@ -347,12 +440,17 @@ input {
 
 .movie-hover h4 {
   margin: 0;
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
 }
 
 .movie-hover p {
   margin: 0.45rem 0 0.7rem;
   color: #d0d0d0;
-  font-size: 0.83rem;
+  font-size: var(--fs-meta);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
 }
 
 .hover-actions {
@@ -367,6 +465,9 @@ input {
   background: transparent;
   color: #fff;
   cursor: pointer;
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
 }
 
 .movie-card:hover,
@@ -415,11 +516,27 @@ input {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 99px;
   padding: 0.4rem 0.8rem;
+  font-size: var(--fs-nav);
+  font-weight: var(--fw-medium);
 }
 
 .player-meta h1 {
-  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  font-size: var(--fs-watch-title);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
   margin: 0 0 0.5rem;
+}
+
+.player-meta p {
+  margin: 0 0 0.8rem;
+  font-size: 1.05rem;
+  line-height: var(--lh-relaxed);
+}
+
+.player-meta p:last-child {
+  font-size: var(--fs-meta);
+  color: #d4d4d4;
 }
 
 :focus-visible {
@@ -428,6 +545,11 @@ input {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --fs-hero-title: clamp(1.9rem, 5.5vw, 3.6rem);
+    --fs-watch-title: clamp(1.7rem, 4.8vw, 3rem);
+  }
+
   .top-nav nav {
     display: none;
   }
@@ -456,6 +578,13 @@ input {
 }
 
 @media (max-width: 640px) {
+  :root {
+    --fs-hero-title: clamp(1.7rem, 7vw, 2.8rem);
+    --fs-watch-title: clamp(1.6rem, 6vw, 2.4rem);
+    --fs-rail-title: 18px;
+    --fs-profile-name: 20px;
+  }
+
   .actions .ghost-btn:nth-child(2) {
     display: none;
   }
@@ -472,5 +601,10 @@ input {
   .hero-actions {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .play-btn,
+  .info-btn {
+    font-size: var(--fs-nav);
   }
 }
